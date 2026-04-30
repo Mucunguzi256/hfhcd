@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import CauseCard from '../components/CauseCard.astro';
+
+const causes = [
+  {
+    title: 'Qurban',
+    description: 'Join our Qurban campaign to share blessings and support families in need.',
+    image: 'https://placehold.co/600x400/2C5F2D/97BC62?text=Qurban',
+    slug: '/causes/qurban',
+    category: 'Islamic',
+  },
+  {
+    title: 'Fidya',
+    description: 'Give fidya to feed those in need when fasting is missed.',
+    image: 'https://placehold.co/600x400/2C5F2D/97BC62?text=Fidya',
+    slug: '/causes/fidya',
+    category: 'Islamic',
+  },
+  {
+    title: 'Aqiqah',
+    description: 'Offer Aqiqah to celebrate a child\'s birth, provide charity through meat distribution.',
+    image: 'https://placehold.co/600x400/2C5F2D/97BC62?text=Aqiqah',
+    slug: '/causes/aqiqah',
+    category: 'Islamic',
+  },
+  {
+    title: 'School Construction',
+    description: 'Build schools to provide safe learning spaces, empower children through education.',
+    image: 'https://placehold.co/600x400/2C5F2D/97BC62?text=Education',
+    slug: '/causes/school-construction',
+    category: 'Education',
+  },
+];
+
+const news = [
+  {
+    date: 'March 28, 2026',
+    title: 'New Borehole Drilled in Wakiso District',
+    excerpt: 'Thanks to the generous donations from our supporters, we have successfully drilled a new borehole in Wakiso District, providing clean...',
+  },
+  {
+    date: 'March 28, 2026',
+    title: 'Food Aid Distribution Reaches 1,800 Families This Month',
+    excerpt: 'Our Food Aid Programme successfully distributed nutritious food packages to 1,800 families across Kampala...',
+  },
+  {
+    date: 'March 27, 2026',
+    title: 'Hello world!',
+    excerpt: 'Welcome to WordPress. This is your first post. Edit or delete it, then start writing!',
+  },
+];
+---
+
+<Layout title="Hope for Humanity and Community Development">
+  <Header />
+
+  <main>
+    <Hero
+      title="Hope for Humanity and Community Development"
+      subtitle="Making a Difference Since 2020 - Bringing Hope to Humanity"
+      ctaText="Get Involved"
+      ctaLink="/causes"
+    />
+
+    <section class="py-20 lg:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-earth-900 mb-4">
+            Our Causes
+          </h2>
+          <p class="text-lg text-earth-600 max-w-2xl mx-auto">
+            Join us in making a difference. Your support helps us transform lives and build stronger communities.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          {causes.map((cause, i) => (
+            <div class="opacity-0 animate-fade-in-up" style={`animation-delay: ${i * 100}ms`}>
+              <CauseCard {...cause} />
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center mt-12">
+          <a
+            href="/causes"
+            class="inline-flex items-center justify-center px-6 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium rounded-full transition-all"
+          >
+            View All Causes
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 lg:py-32 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div>
+            <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-earth-900 mb-6">
+              Our Mission
+            </h2>
+            <p class="text-lg text-earth-600 mb-6">
+              To provide life-changing support through clean water, food aid, and orphan care programs that restore dignity and create lasting change in vulnerable communities.
+            </p>
+            <p class="text-lg text-earth-600 mb-8">
+              We believe in creating lasting change by working directly with communities, understanding their needs, and co-creating solutions that stick.
+            </p>
+            <a
+              href="/about"
+              class="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-full transition-all"
+            >
+              Learn More About Us
+            </a>
+          </div>
+          <div class="relative">
+            <div class="aspect-square max-w-lg mx-auto lg:mx-0 lg:ml-auto">
+              <div class="absolute inset-0 bg-secondary/20 rounded-3xl rotate-3"></div>
+              <div class="relative h-full bg-gradient-to-br from-primary to-secondary rounded-3xl p-8 flex items-center justify-center">
+                <div class="text-center text-white">
+                  <p class="font-display text-2xl font-semibold">Our Mission</p>
+                  <p class="text-white/70">Add mission image in CMS</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 lg:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-earth-900 mb-12 text-center">
+          Latest News
+        </h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          {news.map((item) => (
+            <article class="bg-cream rounded-2xl p-6">
+              <p class="text-sm text-primary font-medium mb-2">{item.date}</p>
+              <h3 class="font-display text-xl font-semibold text-earth-900 mb-3">{item.title}</h3>
+              <p class="text-earth-600">{item.excerpt}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 lg:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-earth-900 mb-12 text-center">
+          Stories of Hope
+        </h2>
+        <p class="text-lg text-earth-600 text-center max-w-2xl mx-auto">
+          Read inspiring stories from beneficiaries and donors.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-20 lg:py-32 bg-primary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+          Ready to Make a Difference?
+        </h2>
+        <p class="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mb-8">
+          Your contribution helps us continue our vital work. Every donation, no matter the size, makes an impact.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/donate"
+            class="inline-flex items-center justify-center px-8 py-4 bg-white text-primary hover:bg-cream font-semibold rounded-full transition-all hover:shadow-xl"
+          >
+            Donate Now
+          </a>
+          <a
+            href="/contact"
+            class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white hover:bg-white hover:text-primary font-semibold rounded-full transition-all"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

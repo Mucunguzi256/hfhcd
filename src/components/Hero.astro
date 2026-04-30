@@ -1,0 +1,91 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const {
+  title = 'Hope for Humanity and Community Development',
+  subtitle = 'Making a Difference Since 2020 - Bringing Hope to Humanity',
+  ctaText = 'Get Involved',
+  ctaLink = '/causes',
+} = Astro.props;
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-cream">
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-gradient-to-br from-cream via-cream-dark to-earth-100 opacity-80"></div>
+    <div class="absolute top-20 right-10 w-72 h-72 bg-secondary/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="text-center lg:text-left">
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-earth-900 mb-6 opacity-0 animate-fade-in-up">
+          {title}
+        </h1>
+        <p class="text-lg sm:text-xl text-earth-600 mb-8 max-w-xl mx-auto lg:mx-0 opacity-0 animate-fade-in-up animate-delay-100">
+          {subtitle}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start opacity-0 animate-fade-in-up animate-delay-200">
+          <a
+            href={ctaLink}
+            class="inline-flex items-center justify-center px-8 py-4 bg-primary hover:bg-primary-dark text-white text-lg font-semibold rounded-full transition-all hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-1"
+          >
+            {ctaText}
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <a
+            href="/about"
+            class="inline-flex items-center justify-center px-8 py-4 border-2 border-earth-300 hover:border-primary hover:text-primary text-earth-700 text-lg font-semibold rounded-full transition-all"
+          >
+            Learn More
+          </a>
+        </div>
+      </div>
+
+      <div class="relative hidden lg:block">
+        <div class="relative w-full aspect-square max-w-lg mx-auto">
+          <div class="absolute inset-0 bg-primary/10 rounded-3xl rotate-6"></div>
+          <div class="absolute inset-4 bg-secondary/20 rounded-3xl -rotate-3"></div>
+          <div class="relative h-full bg-gradient-to-br from-primary to-primary-dark rounded-3xl p-8 flex items-center justify-center overflow-hidden">
+            <div class="text-center text-white">
+              <div class="w-24 h-24 mx-auto mb-6 rounded-full bg-white/20 flex items-center justify-center">
+                <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <p class="font-display text-2xl font-semibold">[Placeholder Image]</p>
+              <p class="text-white/70 mt-2">Add your hero image in CMS</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
+      {[
+        { number: '5,000+', label: 'Lives Impacted' },
+        { number: '6', label: 'Active Causes' },
+        { number: '12+', label: 'Communities Served' },
+        { number: '98%', label: 'Funds to Programs' },
+      ].map((stat, i) => (
+        <div class={`text-center opacity-0 animate-fade-in-up animate-delay-${(i + 3) * 100}`}>
+          <p class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary">{stat.number}</p>
+          <p class="text-earth-600 mt-2">{stat.label}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-earth-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>

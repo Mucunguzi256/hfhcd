@@ -1,0 +1,88 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CauseCard from '../../components/CauseCard.astro';
+
+const causes = [
+  {
+    title: 'Qurban',
+    description: 'Join our Qurban campaign to share blessings and support families in need.',
+    image: 'https://placehold.co/600x400/2C5F2D/97BC62?text=Qurban',
+    slug: '/causes/qurban',
+    category: 'Islamic',
+  },
+  {
+    title: 'Fidya',
+    description: 'Give fidya to feed those in need when fasting is missed.',
+    image: 'https://placehold.co/600x400/2C5F2D/97BC62?text=Fidya',
+    slug: '/causes/fidya',
+    category: 'Islamic',
+  },
+  {
+    title: 'Aqiqah',
+    description: 'Offer Aqiqah to celebrate a child\'s birth, provide charity through meat distribution.',
+    image: 'https://placehold.co/600x400/2C5F2D/97BC62?text=Aqiqah',
+    slug: '/causes/aqiqah',
+    category: 'Islamic',
+  },
+  {
+    title: 'School Construction',
+    description: 'Build schools to provide safe learning spaces, empower children through education.',
+    image: 'https://placehold.co/600x400/2C5F2D/97BC62?text=Education',
+    slug: '/causes/school-construction',
+    category: 'Education',
+  },
+  {
+    title: 'Tree Planting',
+    description: 'Plant trees to restore environment, improve air quality, support sustainable livelihoods.',
+    image: 'https://placehold.co/600x400/2C5F2D/97BC62?text=Tree+Planting',
+    slug: '/causes/tree-planting',
+    category: 'Environment',
+  },
+  {
+    title: 'Masjid Construction',
+    description: 'Build a masjid to serve prayer, learning, and unity.',
+    image: 'https://placehold.co/600x400/2C5F2D/97BC62?text=Masjid',
+    slug: '/causes/masjid-construction',
+    category: 'Religious',
+  },
+];
+---
+
+<Layout title="Our Causes - Hope for Humanity">
+  <Header />
+
+  <main class="pt-32 pb-20">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <h1 class="font-display text-4xl sm:text-5xl font-bold text-earth-900 mb-6">Our Causes</h1>
+      <p class="text-xl text-earth-600 max-w-3xl">
+        Join us in making a difference. Your support helps us transform lives and build stronger communities.
+      </p>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {causes.map((cause, i) => (
+          <div class="opacity-0 animate-fade-in-up" style={`animation-delay: ${i * 100}ms`}>
+            <CauseCard {...cause} />
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-20">
+      <div class="bg-cream rounded-3xl p-8 lg:p-12 text-center">
+        <h2 class="font-display text-3xl font-bold text-earth-900 mb-4">Don't See the Right Cause?</h2>
+        <p class="text-lg text-earth-600 mb-8 max-w-2xl mx-auto">
+          We welcome custom donations for specific needs. Contact us to discuss how your contribution can make the biggest impact.
+        </p>
+        <a href="/contact" class="inline-flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary-dark text-white font-medium rounded-full transition-all">
+          Contact Us
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
