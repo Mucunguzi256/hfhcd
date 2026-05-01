@@ -1,5 +1,5 @@
 import { createServer } from 'node:http';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, statSync } from 'node:fs';
 import { join, extname, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 const MIME = {
   '.html': 'text/html', '.css': 'text/css', '.js': 'application/javascript',
   '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg',
-  '.svg': 'image/svg+xml', '.ico': 'image/x-icon',
+  '.svg': 'image/svg+xml', '.ico': 'image/x-icon', '.yml': 'text/yaml',
 };
 function serveFile(res, fp) {
   try {
@@ -24,10 +24,15 @@ function serveFile(res, fp) {
 const server = createServer((req, res) => {
   let url = req.url.split('?')[0];
   let fp = join(dist, url);
-  if (existsSync(fp)) {
-    if (!extname(fp)) fp = join(fp, 'index.html');
-    if (existsSync(fp)) { serveFile(res, fp); return; }
-  }
+  try {
+    const st = statSync(fp);
+    if (st.isDirectory()) {
+      fp = join(fp, 'index.html');
+      if (existsSync(fp)) { serveFile(res, fp); return; }
+    } else if (st.isFile()) {
+      serveFile(res, fp); return;
+    }
+  } catch {}
   const fallback = join(dist, 'index.html');
   if (existsSync(fallback)) { serveFile(res, fallback); return; }
   res.writeHead(404); res.end('Not Found');
