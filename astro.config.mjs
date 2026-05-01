@@ -10,6 +10,6 @@ export default defineConfig({
     host: true
   },
   build: {
-    format: 'file'
+    format: 'directory'
   }
 });
