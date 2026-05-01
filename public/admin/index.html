@@ -11,37 +11,6 @@
 </head>
 <body>
   <div id="nc-root">Loading CMS...</div>
-  <script src="https://unpkg.com/decap-cms@3.10.0/dist/decap-cms.js"></script>
-  <script>
-    window.decapCMS.init({
-      backend: {
-        name: "git-gateway",
-        repo: "Mucunguzi256/hfhcd",
-        branch: "main",
-        base_url: "https://auth.decapbridge.com",
-        auth_endpoint: "/sites/dc335db9-2a5e-47b2-ba05-bdea4e2e3/pkce",
-        gateway_url: "https://gateway.decapbridge.com"
-      },
-      site_url: "https://www.hfhcd.org",
-      media_folder: "public/images/uploads",
-      collections: [
-        {
-          name: "causes",
-          label: "Causes",
-          folder: "src/content/causes",
-          create: true,
-          slug: "{{fields.title}}",
-          fields: [
-            { label: "Title", name: "title", widget: "string" },
-            { label: "Description", name: "description", widget: "text" },
-            { label: "Goal", name: "goal", widget: "number" },
-            { label: "Raised", name: "raised", widget: "number" },
-            { label: "Image", name: "image", widget: "image" },
-            { label: "Content", name: "body", widget: "markdown" }
-          ]
-        }
-      ]
-    });
-  </script>
+  <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
 </body>
 </html>
