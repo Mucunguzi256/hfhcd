@@ -1,14 +1,14 @@
 backend:
   name: git-gateway
-  repo: Mucunguzi256/ hfhcd
+  repo: Mucunguzi256/hfhcd
   branch: main
-  auth_ type: pkce
-  base_ url: https://auth. decapbridge. com
-  auth_ endpoint: / sites/ dc335db9-2a5e-47b2- ba05-bdea4e2e3/ pkce
-  auth_ token_ endpoint: / sites/ dc335db9-2a5e-47b2- ba05-bdea4e2e3/ token
-  gateway_ url: https://gateway. decapbridge. com
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/dc335db9-2a5e-47b2-ba05-bdea4e2e3/pkce
+  auth_token_endpoint: /sites/dc335db9-2a5e-47b2-ba05-bdea4e2e3/token
+  gateway_url: https://gateway.decapbridge.com
 
-commit_ messages:
+commit_messages:
   create: Create {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
   update: Update {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
   delete: Delete {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
@@ -17,23 +17,23 @@ commit_ messages:
   openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
 
 auth:
-  email_ claim: email
-  first_ name_ claim: first_ name
-  last_ name_ claim: last_ name
-  avatar_ url_ claim: avatar_ url
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
 
-logo_ url: https:// decapbridge. com/ decapcms-with- bridge. svg
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
-site_ url: https://www. hfhcd. org
+site_url: https://www.hfhcd.org
 
-media_ folder: "public/images/uploads"
+media_folder: "public/images/uploads"
 
 collections:
   - name: "causes"
     label: "Causes"
-    folder: "src/content/ causes"
+    folder: "src/content/causes"
     create: true
-    slug: "{{fields. title}}"
+    slug: "{{fields.title}}"
     fields:
       - { label: "Title", name: "title", widget: "string"}
       - { label: "Description", name: "description", widget: "text"}
@@ -44,9 +44,9 @@ collections:
 
   - name: "pages"
     label: "Pages"
-    folder: "src/content/ pages"
+    folder: "src/content/pages"
     create: true
-    slug: "{{fields. title}}"
+    slug: "{{fields.title}}"
     fields:
       - { label: "Title", name: "title", widget: "string"}
       - { label: "Content", name: "body", widget: "markdown"}
