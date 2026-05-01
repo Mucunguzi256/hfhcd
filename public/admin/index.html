@@ -4,38 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin</title>
+  <style>
+    body { margin: 0; background: #f5f5f5; }
+    #nc-root { padding: 2rem; text-align: center; }
+  </style>
 </head>
 <body>
-  <div id="nc-root"></div>
+  <div id="nc-root">Loading CMS...</div>
   <script src="https://unpkg.com/decap-cms@3.11.11/dist/decap-cms.js"></script>
   <script>
     window.INDEX_PAGE_PATH = "/admin/index.html";
-    CMS.init({
+    window.CMS.init({
       config: {
         backend: {
           name: "git-gateway",
           repo: "Mucunguzi256/hfhcd",
           branch: "main",
-          auth_type: "pkce",
           base_url: "https://auth.decapbridge.com",
           auth_endpoint: "/sites/dc335db9-2a5e-47b2-ba05-bdea4e2e3/pkce",
-          auth_token_endpoint: "/sites/dc335db9-2a5e-47b2-ba05-bdea4e2e3/token",
           gateway_url: "https://gateway.decapbridge.com"
         },
-        commit_messages: {
-          create: "Create {{collection}} '{{slug}}' via DecapBridge",
-          update: "Update {{collection}} '{{slug}}' via DecapBridge",
-          delete: "Delete {{collection}} '{{slug}}' via DecapBridge",
-          uploadMedia: "Upload '{{path}}' via DecapBridge",
-          deleteMedia: "Delete '{{path}}' via DecapBridge"
-        },
-        auth: {
-          email_claim: "email",
-          first_name_claim: "first_name",
-          last_name_claim: "last_name",
-          avatar_url_claim: "avatar_url"
-        },
-        logo_url: "https://decapbridge.com/decapcms-with-bridge.svg",
         site_url: "https://www.hfhcd.org",
         media_folder: "public/images/uploads",
         collections: [
@@ -48,9 +36,9 @@
             fields: [
               { label: "Title", name: "title", widget: "string" },
               { label: "Description", name: "description", widget: "text" },
-              { label: "Goal", name: "goal", widget: "number", required: false },
-              { label: "Raised", name: "raised", widget: "number", required: false },
-              { label: "Image", name: "image", widget: "image", required: false },
+              { label: "Goal", name: "goal", widget: "number", value_type: "int" },
+              { label: "Raised", name: "raised", widget: "number", value_type: "int" },
+              { label: "Image", name: "image", widget: "image" },
               { label: "Content", name: "body", widget: "markdown" }
             ]
           }
