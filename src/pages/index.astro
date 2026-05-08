@@ -9,7 +9,7 @@ const causes = [
   {
     title: 'Qurban',
     description: 'Join our Qurban campaign to share blessings and support families in need.',
-    image: '/images/Qurban .webp',
+    image: '/images/Qurban.webp',
     slug: '/causes/qurban',
     category: 'Islamic',
   },
@@ -122,11 +122,15 @@ const news = [
           <div class="relative">
             <div class="aspect-square max-w-lg mx-auto lg:mx-0 lg:ml-auto">
               <div class="absolute inset-0 bg-secondary/20 rounded-3xl rotate-3"></div>
-              <div class="relative h-full bg-gradient-to-br from-primary to-secondary rounded-3xl p-8 flex items-center justify-center">
-                <div class="text-center text-white">
-                  <p class="font-display text-2xl font-semibold">Our Mission</p>
-                  <p class="text-white/70">Add mission image in CMS</p>
-                </div>
+              <div class="relative h-full bg-white rounded-3xl overflow-hidden shadow-xl">
+                <img
+                  src="/images/hero.jpeg"
+                  alt="Our Mission in Action"
+                  width="500"
+                  height="500"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
