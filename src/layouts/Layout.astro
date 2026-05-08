@@ -2,11 +2,13 @@
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
 }
 
 const {
   title = 'Hope for Humanity and Community Development',
   description = 'Making a Difference Since 2020 - Bringing Hope to Humanity',
+  image = '/images/hfhcd-logo.jpg',
 } = Astro.props;
 ---
 
@@ -16,12 +18,26 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#2C5F2D" />
+    
+    <link rel="icon" type="image/png" href="/images/hfhcd-logo.jpg" />
+    <link rel="apple-touch-icon" href="/images/hfhcd-logo.jpg" />
+    
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:type" content="website" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@300;400;500;600;700&family=Public+Sans:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Public+Sans:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -41,6 +57,21 @@ const {
 
   body {
     @apply overflow-x-hidden;
+  }
+
+  :root {
+    --color-primary: #2C5F2D;
+    --color-secondary: #97BC62;
+    --color-accent: #D4A373;
+    --color-cream: #FDF8F3;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
   }
 
   .animate-delay-100 {
